@@ -53,4 +53,9 @@ public class PedidoDTO {
     public void setCliente(ClienteDTO cliente) {
         this.cliente = cliente;
     }
+
+    public boolean verificaNome(){
+        return cliente.verificaNome();
+    }
 }
+

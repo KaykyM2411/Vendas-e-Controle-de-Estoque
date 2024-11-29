@@ -13,6 +13,38 @@ public class PedidoService {
     private ClienteRepository cr;
     private ProdutoRepository prr;
 
+    public PedidoRepository getPr() {
+        return pr;
+    }
+
+    public void setPr(PedidoRepository pr) {
+        this.pr = pr;
+    }
+
+    public ItempedidoRepository getIr() {
+        return ir;
+    }
+
+    public void setIr(ItempedidoRepository ir) {
+        this.ir = ir;
+    }
+
+    public ClienteRepository getCr() {
+        return cr;
+    }
+
+    public void setCr(ClienteRepository cr) {
+        this.cr = cr;
+    }
+
+    public ProdutoRepository getPrr() {
+        return prr;
+    }
+
+    public void setPrr(ProdutoRepository prr) {
+        this.prr = prr;
+    }
+
     public PedidoService() {
         pr = PedidoRepository.getInstance();
         ir = ItempedidoRepository.getInstance();

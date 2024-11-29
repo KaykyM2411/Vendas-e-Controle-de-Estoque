@@ -8,11 +8,10 @@ public class ClienteDTO {
     private String endereco;
     private long id;
 
-    public ClienteDTO(String nome, String telefone, String endereco, long id) {
+    public ClienteDTO(String nome, String telefone, String endereco) {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
-        this.id = id;
     }
     public ClienteDTO(ClienteDTO clienteDTO) {
         this.nome = clienteDTO.getNome();
@@ -58,16 +57,29 @@ public class ClienteDTO {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    public boolean verifica() {
-        if (this.nome == " " || this.nome == null) {
-            return false;
-        }
-        if (this.telefone == " " || this.telefone == null) {
-            return false;
-        }
-        if (this.endereco == " " || this.endereco == null) {
+    public boolean verificaNome() {
+        if (this.nome.isBlank() || this.nome == null){
             return false;
         }
         return true;
     }
+    public boolean verificaTelefone() {
+        if (this.telefone.isBlank() || this.telefone == null){
+            return false;
+        }
+        return true;
+    }
+    public boolean verificaEndereco() {
+        if (this.endereco.isBlank() || this.endereco == null){
+            return false;
+        }
+        return true;
+    }
+    public boolean verificaDados() {
+       if (!verificaNome() || !verificaTelefone() || !verificaEndereco()){
+           return false;
+       }
+       return true;
+    }
+
 }

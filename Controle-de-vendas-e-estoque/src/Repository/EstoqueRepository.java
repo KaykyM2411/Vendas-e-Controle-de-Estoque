@@ -25,7 +25,15 @@ public class EstoqueRepository {
     public void attEstoque(Itemestoque produto, int quantidade) {
         //Implementar lógica para atualizar a quantidade de um produto no estoque
     }
-    public void removeEstoque(Itemestoque produto) {
+    public void removeEstoque(String produto) {
+        ItemestoqueRepository itens = ItemestoqueRepository.getInstance();
 
+        for (Itemestoque item : itens.getItemestoques() ){
+            if (item.getProduto().equals(produto)){
+                itens.itemestoques.remove(item);
+            }else {
+                System.out.println("PRODUTO NÃO ENCONTRADO!");
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package Service;
 
+import Dtos.ClienteDTO;
 import Entities.Cliente;
 import Entities.Itempedido;
 import Entities.Pedido;
@@ -24,6 +25,9 @@ public class ClienteService {
     public void addCliente(String nome, String telefone, String endereco) {
         Cliente cliente = new Cliente(nome, telefone, endereco);
         this.cr.addCliente(cliente);
+    }
+    public void addCliente(ClienteDTO cliente){
+        this.addCliente(cliente.getNome(), cliente.getTelefone(), cliente.getEndereco());
     }
     public void pedidosCliente(String nome){
         Cliente cliente = this.cr.getCliente(nome);
