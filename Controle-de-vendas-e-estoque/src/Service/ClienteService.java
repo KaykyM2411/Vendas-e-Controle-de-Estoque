@@ -35,8 +35,20 @@ public class ClienteService {
             System.out.println(pedido.getData() + " " + pedido.getId());
         }
     }
+    public void pedidosCliente(int id){
+        Cliente cliente = this.cr.getCliente(id);
+        for (Pedido pedido : cliente.getPedidos()) {
+            System.out.println(pedido.getData() + " " + pedido.getId());
+        }
+    }
     public void atualizarDados(String nomeantigo,String nomenovo, String telefonenovo, String endereconovo){
         Cliente cliente = this.cr.getCliente(nomeantigo);
+        cliente.setNome(nomenovo);
+        cliente.setTelefone(telefonenovo);
+        cliente.setEndereco(endereconovo);
+    }
+    public void atualizarDados(int id, String nomenovo, String telefonenovo, String endereconovo){
+        Cliente cliente = this.cr.getCliente(id);
         cliente.setNome(nomenovo);
         cliente.setTelefone(telefonenovo);
         cliente.setEndereco(endereconovo);

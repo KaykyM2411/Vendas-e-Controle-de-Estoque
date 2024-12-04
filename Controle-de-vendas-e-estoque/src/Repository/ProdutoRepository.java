@@ -27,6 +27,16 @@ public class ProdutoRepository {
                 return produto;
             }
         }
+        System.out.println("Produto nao encontrado");
+        return null;
+    }
+    public Produto getProduto(int id){
+        for (Produto produto : produtos) {
+            if (produto.getId() == id) {
+                return produto;
+            }
+        }
+        System.out.println("Produto nao encontrado");
         return null;
     }
     public void addProduto(Produto produto) {

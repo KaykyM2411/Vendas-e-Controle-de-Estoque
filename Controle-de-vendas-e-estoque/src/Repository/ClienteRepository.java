@@ -30,6 +30,16 @@ public class ClienteRepository {
                 return cliente;
             }
         }
+        System.out.println("Cliente nao encontrado");
+        return null;
+    }
+    public Cliente getCliente(int id) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
+                return cliente;
+            }
+        }
+        System.out.println("Cliente nao encontrado");
         return null;
     }
     public void removeCliente(Cliente cliente) {

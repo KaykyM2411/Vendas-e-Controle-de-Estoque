@@ -8,10 +8,11 @@ public class ClienteDTO {
     private String endereco;
     private long id;
 
-    public ClienteDTO(String nome, String telefone, String endereco) {
+    public ClienteDTO(String nome, String telefone, String endereco, long id) {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
+        this.id = id;
     }
     public ClienteDTO(ClienteDTO clienteDTO) {
         this.nome = clienteDTO.getNome();
@@ -75,8 +76,11 @@ public class ClienteDTO {
         }
         return true;
     }
+    public boolean verificaId() {
+        return this.id > 0;
+    }
     public boolean verificaDados() {
-       if (!verificaNome() || !verificaTelefone() || !verificaEndereco()){
+       if (!verificaNome() || !verificaTelefone() || !verificaEndereco() || !verificaId()){
            return false;
        }
        return true;

@@ -22,4 +22,10 @@ public class ProdutoService {
     public Produto buscarProduto(String nome) {
         return pr.getProduto(nome);
     }
+    public void attPreco(String nome, float preco){
+        pr.getProduto(nome).setPreco(preco);
+    }
+    public void attPreco(int id, float preco){
+        pr.getProduto(id).setPreco(preco);
+    }
 }

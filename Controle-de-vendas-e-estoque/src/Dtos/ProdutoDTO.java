@@ -47,8 +47,26 @@ public class ProdutoDTO {
         this.id = id;
     }
 
+    public boolean verificaNome(){
+        if(this.nome.isBlank() || this.nome == null) {
+            return false;
+        }
+        return true;
+    }
+    public boolean verificaPreco(){
+        if(this.preco <= 0) {
+            return false;
+        }
+        return true;
+    }
+    public boolean verificaId(){
+        if(this.id <= 0) {
+            return false;
+        }
+        return true;
+    }
     public boolean verificaProduto(){
-        if (this.nome == null || this.nome.isBlank() || this.preco <= 0){
+        if (!verificaNome() || !verificaPreco() || !verificaId()) {
             return false;
         }
         return true;

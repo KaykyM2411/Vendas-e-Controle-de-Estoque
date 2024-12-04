@@ -8,9 +8,9 @@ import java.util.Date;
 public class PedidoDTO {
     private long id;
     private Date data;
-    private ClienteDTO cliente;
+    private String cliente;
 
-    public PedidoDTO(long id, Date data, ClienteDTO cliente) {
+    public PedidoDTO(long id, Date data, String cliente) {
         this.id = id;
         this.data = data;
         this.cliente = cliente;
@@ -23,11 +23,7 @@ public class PedidoDTO {
     public PedidoDTO(Pedido pedido) {
         this.id = pedido.getId();
         this.data = pedido.getData();
-        this.cliente.setNome(pedido.getCliente().getNome());
-        this.cliente.setEndereco(pedido.getCliente().getEndereco());
-        this.cliente.setTelefone(pedido.getCliente().getTelefone());
-        this.cliente.setId(pedido.getCliente().getId());
-
+        this.setCliente(pedido.getCliente().getNome());
     }
 
     public long getId() {
@@ -46,16 +42,23 @@ public class PedidoDTO {
         this.data = data;
     }
 
-    public ClienteDTO getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(ClienteDTO cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
     public boolean verificaNome(){
+        ClienteDTO cliente = new ClienteDTO(this.cliente, " "," ", 0);
+
         return cliente.verificaNome();
+    }
+    public boolean verificaId(){
+        ClienteDTO cliente = new ClienteDTO("", " ", " ", this.id);
+
+        return cliente.verificaId();
     }
 }
 

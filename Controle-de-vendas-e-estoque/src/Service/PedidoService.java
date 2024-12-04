@@ -57,5 +57,11 @@ public class PedidoService {
 
         return pedido.getId();
     }
+    public long criarPedido(int id){
+        Pedido pedido = new Pedido();
+        cr.getCliente(id).addPedido(pedido);
 
+        return pedido.getId();
+    }
+    public void
 }
